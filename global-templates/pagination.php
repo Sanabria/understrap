@@ -47,7 +47,7 @@ function understrap_pagination() {
 		$class = 1 == $paged ? ' class="active page-item"' : ' class="page-item"';
 
 		printf( // WPCS: XSS OK.
-			'<li %s><a class="page-link" href="%s"><i class="fa fa-step-backward" aria-hidden="true"></i></a></li>' . "\n",
+			'<li %s><a class="page-link" href="%s"><i class="fa fa-angle-double-left" aria-hidden="true"></i></a></li>' . "\n",
 		$class,
 		esc_url( get_pagenum_link( 1 ) ), '1' );
 
@@ -56,7 +56,7 @@ function understrap_pagination() {
 			printf( // WPCS: XSS OK.
 				'<li class="page-item"><span class="page-link">%1$s</span></li> ' . "\n",
 			get_previous_posts_link(  // WPCS: XSS OK.
-			 '<span aria-hidden="true">&laquo;</span><span class="sr-only">Previous page</span>' ) );
+			 '<i class="fa fa-angle-left" aria-hidden="true"></i><span class="sr-only">Previous page</span>' ) );
 		}
 
 		if ( ! in_array( 2, $links ) ) {
@@ -78,7 +78,7 @@ function understrap_pagination() {
 	if ( get_next_posts_link() ) {
 		printf( // WPCS: XSS OK.
 			'<li class="page-item"><span class="page-link">%s</span></li>' . "\n",
-			get_next_posts_link( '<span aria-hidden="true">&raquo;</span><span class="sr-only">Next page</span>' ) );
+			get_next_posts_link( '<i class="fa fa-angle-right" aria-hidden="true"></i><span class="sr-only">Next page</span>' ) );
 	}
 
 	// Link to last page, plus ellipses if necessary.
@@ -89,7 +89,7 @@ function understrap_pagination() {
 
 		$class = $paged == $max ? ' class="active "' : ' class="page-item"';
 		printf( // WPCS: XSS OK.
-			'<li %s><a class="page-link" href="%s" aria-label="Next"><span aria-hidden="true"><i class="fa fa-step-forward" aria-hidden="true"></i></span><span class="sr-only">%s</span></a></li>' . "\n",
+			'<li %s><a class="page-link" href="%s" aria-label="Next"><span aria-hidden="true"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span><span class="sr-only">%s</span></a></li>' . "\n",
 		$class . ' page-item 9', esc_url( get_pagenum_link( esc_html( $max ) ) ), esc_html( $max ) );
 	}
 
